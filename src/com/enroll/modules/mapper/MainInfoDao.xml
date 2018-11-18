@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.MainInfoDao">
+
+	<insert id="save" parameterType="com.enroll.modules.pojo.SysMainInfo"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into sys_main_info
+		(
+		`id`,
+		`message`
+		)
+		values
+		(
+		#{id},
+		#{message}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.enroll.modules.pojo.SysMainInfo">
+		update sys_main_info
+		<set>
+			<if test="message != null">`message` = #{message}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<select id="queryObject" resultType="com.enroll.modules.pojo.SysMainInfo">
+		select * from sys_main_info
+		where id = #{value}
+	</select>
+
+	<delete id="deleteBatch">
+		delete from sys_main_info where id in
+		<foreach item="id" collection="array" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+
+</mapper>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.ClassDao">
+
+	<insert id="save" parameterType="com.enroll.modules.pojo.ClassEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_class
+		(
+		`id`,
+		`className`,
+		`classCode`,
+		`classMenberNum`,
+		`classMaxNum`,
+		`classCreateTime`,
+		`classMajor`
+		)
+		values
+		(
+		#{id},
+		#{className},
+		#{classCode},
+		#{classMenberNum},
+		#{classMaxNum},
+		#{classCreateTime},
+		#{classMajor.majorId}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.enroll.modules.pojo.ClassEntity">
+		update s_class
+		<set>
+			<if test="className != null">`className` = #{className}, </if>
+			<if test="classCode != null">`classCode` = #{classCode}, </if>
+			<if test="classMenberNum != null">`classMenberNum` = #{classMenberNum}, </if>
+			<if test="classMaxNum != null">`classMaxNum` = #{classMaxNum}, </if>
+			<if test="classCreateTime != null">`classCreateTime` = #{classCreateTime}, </if>
+			<if test="classMajor != null">`classMajor` = #{classMajor.majorId}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteBatch">
+		delete from s_class where id in
+		<foreach item="id" collection="array" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.ClassEntity" id="sList"><!-- 
+			跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="classMajor" column="classMajor"
+			select="com.enroll.modules.mapper.MajorDao.select" /> <!-- 用接口里定义的方法，根据ClassEntity表中的artAuthor字段查出对应数据 -->
+	</resultMap>
+
+	<select id="queryListById" resultMap="sList">
+		select * from s_class
+		where
+		id = #{value}
+	</select>
+
+	<select id="queryObject" resultMap="sList">
+		select * from s_class
+		where
+		id = #{value}
+	</select>
+	
+	<select id="queryObjectByCode" resultMap="sList">
+		select * from s_class
+		where
+		classCode = #{classCode}
+	</select>
+
+	<select id="queryList" resultMap="sList">
+		select * from s_class
+		<where>
+			<if test="className != null and className.trim() != ''">
+				`className` like concat('%',#{className},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select count(*) from s_class
+		<where>
+			<if test="className != null and className.trim() != ''">
+				and `className` like concat('%',#{className},'%')
+			</if>
+		</where>
+	</select>
+	
+	<select id="select" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.ClassEntity">
+		select * from s_class
+		where
+		id = #{id}
+	</select>
+</mapper>

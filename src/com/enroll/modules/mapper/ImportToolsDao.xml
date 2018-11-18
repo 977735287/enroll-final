@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.ImportToolsDao">
+
+	<select id="select" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.AreaEntity">
+		select * from s_area
+		where
+		id = #{id}
+	</select>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.AreaEntity" id="sObject"><!-- 跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="parent" column="parent_id"
+			select="com.enroll.modules.mapper.ImportToolsDao.select" /> <!-- 用接口里定义的方法，根据AreaEntity表中的parent_id字段查出对应数据 -->
+	</resultMap>
+
+	<select id="queryObject" resultMap="sObject">
+		select * from s_area
+		where
+		code = #{value}
+	</select>
+
+	<insert id="saveArea" parameterType="com.enroll.modules.pojo.AreaEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_area
+		(
+		`id`,
+		`code`,
+		`name`,
+		`level`,
+		`parent_id`
+		)
+		values
+		(
+		#{id},
+		#{code},
+		#{name},
+		#{level},
+		#{parent.id}
+		)
+	</insert>
+
+	<insert id="saveCertificatesType" parameterType="com.enroll.modules.pojo.CertificatesTypeEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_certificates_type
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveNation" parameterType="com.enroll.modules.pojo.Nation"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_nation
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveNationality" parameterType="com.enroll.modules.pojo.StudentNationality"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_nationality
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="savePoliticalOutlook" parameterType="com.enroll.modules.pojo.PoliticalOutlook"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_political
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveEnrolObject" parameterType="com.enroll.modules.pojo.StudentEnrolObject"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_enrol_object
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveEnrolType" parameterType="com.enroll.modules.pojo.StudentEnrolType"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_enrol_type
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveEntranceWay" parameterType="com.enroll.modules.pojo.StudentEntranceWay"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_entrance_way
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveHKMTOC" parameterType="com.enroll.modules.pojo.StudentHKMTOC"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_hkmtoc
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveMemberRelationShip" parameterType="com.enroll.modules.pojo.MemberRelationShip"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_member_relationship
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+	<insert id="saveStudentType" parameterType="com.enroll.modules.pojo.StudentType"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_stu_type
+		(
+		`id`,
+		`name`
+		)
+		values
+		(
+		#{id},
+		#{name}
+		)
+	</insert>
+
+</mapper>

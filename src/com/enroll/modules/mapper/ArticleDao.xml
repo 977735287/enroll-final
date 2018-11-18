@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.enroll.modules.mapper.ArticleDao">
+
+	<insert id="save" parameterType="com.enroll.modules.pojo.ArticleEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_article
+		(
+		`id`,
+		`artTitle`,
+		`artAuthor`,
+		`artType`,
+		`artStatus`,
+		`artPublishTime`,
+		`artVaildTime`,
+		`artContent`,
+		`artSource`
+		)
+		values
+		(
+		#{id},
+		#{artTitle},
+		#{artAuthor.userId},
+		#{artType},
+		#{artStatus},
+		#{artPublishTime},
+		#{artVaildTime},
+		#{artContent},
+		#{artSource}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.enroll.modules.pojo.ArticleEntity">
+		update s_article
+		<set>
+			<if test="artTitle != null">`artTitle` = #{artTitle}, </if>
+			<if test="artAuthor != null">`artAuthor` = #{artAuthor.userId}, </if>
+			<if test="artType != null">`artType` = #{artType}, </if>
+			<if test="artStatus != null">`artStatus` = #{artStatus}, </if>
+			<if test="artPublishTime != null">`artPublishTime` = #{artPublishTime}, </if>
+			<if test="artVaildTime != null">`artVaildTime` = #{artVaildTime}, </if>
+			<if test="artContent != null">`artContent` = #{artContent}, </if>
+			<if test="artSource != null">`artSource` = #{artSource}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteBatch">
+		delete from s_article where id in
+		<foreach item="id" collection="array" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.ArticleEntity" id="sList"><!-- 
+			跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="artAuthor" column="artAuthor"
+			select="com.enroll.modules.mapper.SysUserDao.select" /> <!-- 用接口里定义的方法，根据ArticleEntity表中的artAuthor字段查出对应数据 -->
+	</resultMap>
+
+	<select id="queryListById" resultMap="sList">
+		select * from s_article
+		where id = #{value}
+	</select>
+
+	<select id="queryList" resultMap="sList">
+		select id,artTitle,artType,artStatus,artPublishTime,artVaildTime,artSource,artAuthor from s_article
+		<where>
+			<if test="artTitle != null and artTitle.trim() != ''">
+				`artTitle` like concat('%',#{artTitle},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select count(*) from s_article
+		<where>
+			<if test="artTitle != null and artTitle.trim() != ''">
+				and `artTitle` like concat('%',#{artTitle},'%')
+			</if>
+		</where>
+	</select>
+</mapper>

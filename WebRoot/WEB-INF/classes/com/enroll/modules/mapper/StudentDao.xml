@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.StudentDao">
+	<select id="selectUploadFile" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.UploadFileEntity">
+		select * from s_upload_file
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentType" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentType">
+		select * from s_stu_type
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectCertificatesType" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.CertificatesTypeEntity">
+		select * from s_certificates_type
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentEntranceWay" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentEntranceWay">
+		select * from s_entrance_way
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentNationality" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentNationality">
+		select * from s_nationality
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentHKMTOC" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentHKMTOC">
+		select * from s_hkmtoc
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectArea" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.AreaEntity">
+		select * from s_area
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectNation" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.Nation">
+		select * from s_nation
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectPoliticalOutlook" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.PoliticalOutlook">
+		select * from s_political
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentEnrolObject" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentEnrolObject">
+		select * from s_enrol_object
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectStudentEnrolType" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.StudentEnrolType">
+		select * from s_enrol_type
+		where
+		id = #{id}
+	</select>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.StudentFamilyMemberEntity"
+		id="sList"><!-- 跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="relationShip" column="relationShip"
+			select="com.enroll.modules.mapper.StudentDao.selectMemberRelationShip" />
+		<association property="stuNation" column="stuNation"
+			select="com.enroll.modules.mapper.StudentDao.selectNation" />
+		<association property="stuPoliticalOutlook" column="stuPoliticalOutlook"
+			select="com.enroll.modules.mapper.StudentDao.selectPoliticalOutlook" />
+	</resultMap>
+
+	<select id="selectFamilyMember" parameterType="Integer"
+		resultMap="sList">
+		select * from s_family_member
+		where
+		id = #{id}
+	</select>
+
+	<select id="selectMemberRelationShip" parameterType="Integer"
+		resultType="com.enroll.modules.pojo.MemberRelationShip">
+		select * from s_member_relationship
+		where
+		id = #{id}
+	</select>
+</mapper>

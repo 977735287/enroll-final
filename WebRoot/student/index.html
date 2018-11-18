@@ -1,0 +1,730 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Learn Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript">
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+</script>
+<link href="../static/student/css/bootstrap-3.1.1.min.css"
+	rel='stylesheet' type='text/css' />
+<link href="../static/student/css/style.css" rel='stylesheet'
+	type='text/css' />
+<link href="../static/student/css/jquery.countdown.css" rel="stylesheet" />
+<link
+	href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'
+	rel='stylesheet' type='text/css'>
+<link href="../static/student/css/font-awesome.css" rel="stylesheet">
+
+<script src="../static/student/js/jquery.min.js"></script>
+<script src="../static/student/js/bootstrap.min.js"></script>
+<script src="../static/js/vue.min.js"></script>
+<script src="../static/student/js/common.js"></script>
+<script src="../static/student/js/responsiveslides.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".dropdown").hover(function() {
+			$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+			$(this).toggleClass('open');
+		}, function() {
+			$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+			$(this).toggleClass('open');
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="eapp" v-cloak>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"><span
+						class="logo-text">桂林市卫生学校</span></a>
+				</div>
+				<!--/.navbar-header-->
+				<div class="navbar-collapse collapse"
+					id="bs-example-navbar-collapse-1" style="height: 1px;">
+					<ul class="nav navbar-nav">
+						<li v-show="!isLogin" class="dropdown"><a
+							href="loginOrRegister.html?status=0"><i class="fa fa-user"></i><span>登陆</span></a></li>
+						<li v-show="!isLogin" class="dropdown"><a
+							href="loginOrRegister.html?status=1"><i class="fa fa-users"></i><span>注册</span></a></li>
+						<li v-show="isLogin" class="dropdown"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"><i
+								class="fa fa-user"></i><span>{{userInfo.username}}</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">我的信息</a></li>
+								<li><a href="#">修改密码</a></li>
+								<li><a href="javascript:logout();">退出</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="fa fa-list"></i><span>Courses</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="courses.html">Courses Categories</a></li>
+								<li><a href="courses.html">Courses list</a></li>
+								<li><a href="courses.html">Courses detail</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="fa fa-calendar"></i><span>Events</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="events.html">Event1</a></li>
+								<li><a href="events.html">Event2</a></li>
+								<li><a href="events.html">Event3</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="fa fa-globe"></i><span>English</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><span><i class="flags us"></i><span>English</span></span></a></li>
+								<li><a href="#"><span><i class="flags newzland"></i><span>Newzland</span></span></a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="fa fa-search"></i><span>Search</span></a>
+							<ul class="dropdown-menu search-form">
+								<form>
+									<input type="text" class="search-text" name="s"
+										placeholder="Search...">
+									<button type="submit" class="search-submit">
+										<i class="fa fa-search"></i>
+									</button>
+								</form>
+							</ul></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!--/.navbar-collapse-->
+		</nav>
+		<nav class="navbar nav_bottom" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header nav_2">
+					<button type="button"
+						class="navbar-toggle collapsed navbar-toggle1"
+						data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav nav_1">
+						<li><a href="index.html">首页</a></li>
+						<li><a href="studentSignup.html">学生报名</a></li>
+						<li class="dropdown mega-dropdown active"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown">Admissions<span
+								class="caret"></span></a>
+							<div class="dropdown-menu mega-dropdown-menu">
+								<div class="container-fluid">
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<div class="tab-pane active" id="men">
+											<ul class="nav-list list-inline">
+												<li><a href="admission.html"><img
+														src="../static/student/images/t7.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t8.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t9.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t1.jpg"
+														class="img-responsive" alt="" /></a></li>
+											</ul>
+										</div>
+										<div class="tab-pane" id="women">
+											<ul class="nav-list list-inline">
+												<li><a href="admission.html"><img
+														src="../static/student/images/t1.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t2.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t3.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t4.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t5.jpg"
+														class="img-responsive" alt="" /></a></li>
+												<li><a href="admission.html"><img
+														src="../static/student/images/t6.jpg"
+														class="img-responsive" alt="" /></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="active"><a href="#men" role="tab"
+										data-toggle="tab">School</a></li>
+									<li><a href="#women" role="tab" data-toggle="tab">College</a></li>
+								</ul>
+							</div></li>
+						<li><a href="faculty.html">Faculty</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Programs<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="terms.html">Terms of use</a></li>
+								<li><a href="shortcodes.html">Shortcodes</a></li>
+								<li><a href="faq.html">Faq</a></li>
+							</ul></li>
+						<li><a href="services.html">Services</a></li>
+						<li class="last"><a href="contact.html">Contacts</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		<!-- banner -->
+		<div class="banner">
+			<!-- banner Slider starts Here -->
+			<script>
+				// You can also use "$(window).load(function() {"
+				$(function() {
+					// Slideshow 4
+					$("#slider3").responsiveSlides(
+							{
+								auto : true,
+								pager : true,
+								nav : true,
+								speed : 500,
+								namespace : "callbacks",
+								before : function() {
+									$('.events').append(
+											"<li>before event fired.</li>");
+								},
+								after : function() {
+									$('.events').append(
+											"<li>after event fired.</li>");
+								}
+							});
+
+				});
+			</script>
+			<!--//End-slider-script -->
+			<div id="top" class="callbacks_container">
+				<ul class="rslides" id="slider3">
+					<li>
+						<div class="banner-bg"></div>
+					</li>
+					<li>
+						<div class="banner-bg banner-img2"></div>
+					</li>
+					<li>
+						<div class="banner-bg banner-img"></div>
+					</li>
+					<li>
+						<div class="banner-bg"></div>
+					</li>
+					<li>
+						<div class="banner-bg banner-img2"></div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="grid_1">
+			<div class="container">
+				<div class="col-md-4">
+					<div class="news">
+						<h1>公告政策</h1>
+						<div class="section-content" v-for="article in articleList">
+							<article v-if="article.artTitle.length > 16">
+								<figure class="date">
+									<i class="fa fa-calendar"></i>{{article.artPublishTime}}</figure>
+								<a href="#">{{article.artTitle.substring(0,16)}}...</a>
+							</article>
+							<article v-else>
+								<figure class="date">
+									<i class="fa fa-calendar"></i>{{article.artPublishTime}}</figure>
+								<a href="#">{{article.artTitle}}</a>
+							</article>
+						</div>
+						<!-- /.section-content -->
+						<a href="#" class="read-more">查看所有</a>
+					</div>
+					<!-- /.news-small -->
+				</div>
+				<div class="col-md-8 grid_1_right">
+					<h2>专业介绍</h2>
+					<div class="but_list">
+						<div class="bs-example bs-example-tabs" role="tabpanel"
+							data-example-id="togglable-tabs">
+							<ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
+								<li role="presentation" class="active"><a href="#home"
+									id="home-tab" role="tab" data-toggle="tab" aria-controls="home"
+									aria-expanded="true">Day 1&nbsp;&nbsp;&nbsp;31-08-2015</a></li>
+								<li role="presentation"><a href="#profile" role="tab"
+									id="profile-tab" data-toggle="tab" aria-controls="profile">Day
+										2&nbsp;&nbsp;&nbsp;01-09-2015</a></li>
+								<li role="presentation"><a href="#profile1" role="tab"
+									id="profile-tab1" data-toggle="tab" aria-controls="profile1">Day
+										3&nbsp;&nbsp;&nbsp;05-09-2015</a></li>
+							</ul>
+							<div id="myTabContent" class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active" id="home"
+									aria-labelledby="home-tab">
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												It is a long established fact that a reader will be
+												distracted by the readable content of a page when looking at
+												its layout. <a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t9.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												There are many variations of passages of Lorem Ipsum
+												available, but the majority have suffered alteration in some
+												form <a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t5.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="profile"
+									aria-labelledby="profile-tab">
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												There are many variations of passages of Lorem Ipsum
+												available, but the majority have suffered alteration in some
+												form <a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t8.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												Contrary to popular belief, Lorem Ipsum is not simply random
+												text. It has roots in a piece of classical Latin literature
+												<a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t2.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="profile1"
+									aria-labelledby="profile-tab1">
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												But I must explain to you how all this mistaken idea of
+												denouncing pleasure and praising pain was born and I will
+												give you a complete account of the system, and expound the
+												actual teachings <a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t7.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div class="events_box">
+										<div class="event_left">
+											<div class="event_left-item">
+												<div class="icon_2">
+													<i class="fa fa-clock-o"></i>09:00 - 10:30
+												</div>
+												<div class="icon_2">
+													<i class="fa fa-location-arrow"></i>Room A
+												</div>
+												<div class="icon_2">
+													<div class="speaker">
+														<i class="fa fa-user"></i>
+														<div class="speaker_item">
+															<a href="#">Lorem Ipsum</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="event_right">
+											<h3>
+												<a href="#">Welcoming and introduction</a>
+											</h3>
+											<p>
+												Vestibulum id ligula porta felis euismod semper. Nullam quis
+												risus eget urna mollis ornare vel eu leo. Donec ullamcorper
+												nulla non metus auctor fringilla. Aenean lacinia bibendum
+												nulla sed consectetur.... <a href="#">Read More</a>
+											</p>
+											<img src="../static/student/images/t4.jpg"
+												class="img-responsive" alt="" />
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="bg">
+			<div class="container">
+				<div class="timer_wrap">
+					<div id="counter"></div>
+				</div>
+				<div class="newsletter">
+					<form>
+						<input type="text" name="ne" size="30" required=""
+							placeholder="Please fill your email"> <input
+							type="submit" value="Subscribe">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="bottom_content">
+			<h3>Our Projects</h3>
+			<div class="grid_2">
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t15.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t10.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t12.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="grid_3">
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t11.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t14.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 portfolio-left">
+					<div class="portfolio-img event-img">
+						<img src="../static/student/images/t13.jpg" class="img-responsive"
+							alt="" />
+						<div class="over-image"></div>
+					</div>
+					<div class="portfolio-description">
+						<h4>
+							<a href="#">Lorem Ipsum</a>
+						</h4>
+						<p>Mauris diam massa, malesuada a sapien in, semper vehicula
+							erat. Vivamus sagittis leo a ullamcorper ultricies. Suspendisse
+							placerat mattis arcu nec por</p>
+						<span> <a href="students.html">School Studies</a> <a
+							href="students.html">College Studies</a>
+						</span> <a href="events.html"> <span><i
+								class="fa fa-chain chain_1"></i>VIEW PROJECT</span>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="col-md-3 grid_4">
+					<h3>关于我们</h3>
+					<p>桂林市卫生学校，1998年由原桂林地区卫校（创办于1962年）与原桂林市中医学校（创办于1973年）合并而成，是经广西壮族自治区人民政府批准、区教育厅评审合格的全日制普通中等专业卫生学校。</p>
+					<ul class="social-nav icons_2 clearfix">
+						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="facebook"> <i
+								class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="google-plus"><i
+								class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 grid_4">
+					<h3>快速链接</h3>
+					<ul class="footer_list">
+						<li><a href="http://www.glswx.com.cn/Index.asp">- 学校主页</a></li>
+						<li><a
+							href="http://219.159.78.2:81/NewPage/Login.aspx?ReturnUrl=%2f">-
+								网上教务系统</a></li>
+						<li><a href="http://www.gledu.cn/">- 桂林教育信息网</a></li>
+						<li><a href="http://www.gxedu.gov.cn/">- 广西壮族自治区教育厅</a></li>
+						<li><a href="http://www.wenming.cn/">- 中国文明网</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 grid_4">
+					<h3>联系我们</h3>
+					<address>
+						<abbr>电话 : </abbr> 0773—3898202（校办） <br>
+						0773—3890904（招生就业办公室） <br> <abbr>邮件 : </abbr> glwxok@163.com
+						<br> <abbr>招生办QQ : </abbr> 2821119176 <br> <abbr>地址
+							: </abbr> 民主路万寿巷10号 <br>
+					</address>
+				</div>
+				<div class="col-md-3 grid_4">
+					<h3>上班时间</h3>
+					<table class="table_working_hours">
+						<tbody>
+							<tr class="opened_1">
+								<td class="day_label">星期一</td>
+								<td class="day_value">早上 9:30 - 下午 6:00</td>
+							</tr>
+							<tr class="opened">
+								<td class="day_label">星期二</td>
+								<td class="day_value">早上 9:30 - 下午 6:00</td>
+							</tr>
+							<tr class="opened">
+								<td class="day_label">星期三</td>
+								<td class="day_value">早上 9:30 - 下午 6:00</td>
+							</tr>
+							<tr class="opened">
+								<td class="day_label">星期四</td>
+								<td class="day_value">早上 9:30 - 下午 6:00</td>
+							</tr>
+							<tr class="opened">
+								<td class="day_label">星期五</td>
+								<td class="day_value">早上 9:30 - 下午 6:00</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearfix"></div>
+				<div class="copy">
+					<p>
+						Copyright &copy; 2017 <a href="" target="_blank">智能招生信息管理系统</a>
+						All Rights Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../static/student/js/jquery.countdown.js"></script>
+	<script src="../static/student/js/script.js"></script>
+	<script src="js/indexUI.js"></script>
+</body>
+</html>

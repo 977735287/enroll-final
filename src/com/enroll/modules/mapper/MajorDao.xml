@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.MajorDao">
+
+	<select id="select" parameterType="Integer" resultType="com.enroll.modules.pojo.MajorEntity">
+		select * from s_major
+		where
+		majorId = #{majorId}
+	</select>
+
+	<insert id="save" parameterType="com.enroll.modules.pojo.MajorEntity"
+		useGeneratedKeys="true" keyProperty="userId">
+		insert into s_major
+		(
+		`majorId`,
+		`majorCode`,
+		`majorName`,
+		`majorCurrentNum`,
+		`majorMaxNum`,
+		`majorMax`,
+		`createTime`,
+		`majorLength`
+		)
+		values
+		(
+		#{majorId},
+		#{majorCode},
+		#{majorName},
+		#{majorCurrentNum},
+		#{majorMaxNum},
+		#{majorMax},
+		#{createTime},
+		#{majorLength.id}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.enroll.modules.pojo.MajorEntity">
+		update s_major
+		<set>
+			<if test="majorCode != null">`majorCode` = #{majorCode}, </if>
+			<if test="majorName != null">`majorName` = #{majorName}, </if>
+			<if test="majorCurrentNum != null">`majorCurrentNum` = #{majorCurrentNum}, </if>
+			<if test="majorMaxNum != null">`majorMaxNum` = #{majorMaxNum}, </if>
+			<if test="majorMax != null">`majorMax` = #{majorMax}, </if>
+			<if test="majorLength != null">`majorLength` = #{majorLength.id}, </if>
+		</set>
+		where majorId = #{majorId}
+	</update>
+
+	<delete id="deleteBatch">
+		delete from s_major where majorId in
+		<foreach item="majorId" collection="array" open="(" separator=","
+			close=")">
+			#{majorId}
+		</foreach>
+	</delete>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.MajorEntity" id="sList"><!-- 
+			跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="majorLength" column="majorLength"
+			select="com.enroll.modules.mapper.LengthsOfSchoolDao.select" /> <!-- 用接口里定义的方法，根据student表中的major字段查出对应数据 -->
+	</resultMap>
+
+	<select id="queryListById" resultMap="sList">
+		select * from s_major where
+		majorId = #{value}
+	</select>
+
+	<select id="queryList" resultMap="sList">
+		select * from s_major
+		<where>
+			<if test="majorName != null and majorName.trim() != ''">
+				and `majorName` like concat('%',#{majorName},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by majorId desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select count(*) from s_major
+		<where>
+			<if test="majorName != null and majorName.trim() != ''">
+				and `majorName` like concat('%',#{majorName},'%')
+			</if>
+		</where>
+	</select>
+
+</mapper>

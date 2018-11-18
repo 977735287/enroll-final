@@ -1,0 +1,415 @@
+html {
+	overflow-x: hidden;
+}
+
+.v-h-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 50%;
+	transform: translateY(-50%)
+}
+
+.login-box-body .row .col-xs-8 a {
+	color: #0080ff;
+}
+
+.closeWinsow a {
+	color: #0080ff;
+}
+
+.closeWinsow a:hover {
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+.login-box-body .row .col-xs-8 a:hover {
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+.login-box-msg {
+	color: #000000;
+}
+
+.content-header {
+	position: relative;
+	padding: 0 0 3px 8px
+}
+
+.content-header>.breadcrumb {
+	position: relative;
+	top: 0;
+	right: 0;
+	float: none;
+	margin-top: 0px;
+	padding-left: 10px;
+	background: #ecf0f5;
+}
+
+.main-footer {
+	padding: 7px;
+	color: #444;
+	border-top: 1px solid #eee;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.grid-btn {
+	margin-bottom: 12px;
+}
+
+.grid-btn .btn {
+	margin-right: 10px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.ml-10 {
+	margin-left: 0 !important;
+}
+
+@media ( min-width : 768px) {
+	.ml-10 {
+		margin-left: 10px !important;
+	}
+	.col-sm-10 {
+		width: 70%;
+		padding-left: 0px;
+	}
+	.col-sm-2 {
+		width: 24%;
+	}
+}
+
+tbody>tr>th {
+	font-weight: normal;
+}
+
+.panel .table {
+	margin: 0 0;
+}
+
+.panel .pagination {
+	margin: 0;
+}
+
+.panel-default>.panel-heading {
+	background-color: #f5f5f5;
+}
+
+.row {
+	border-top: 1px solid #ddd;
+	margin: 0;
+	padding: 20px 2px 0px 2px;
+}
+
+.col-xs-6 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.form-horizontal .form-group {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.form-horizontal {
+	width: 550px;
+	padding-top: 20px;
+}
+
+.form-control-select {
+	width: 32.5%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.form-control-select:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6)
+}
+
+.form-control-select::-moz-placeholder {
+	color: #999;
+	opacity: 1
+}
+
+.form-control-select:-ms-input-placeholder {
+	color: #999
+}
+
+.form-control-select::-webkit-input-placeholder {
+	color: #999
+}
+
+.form-control-select::-ms-expand {
+	background-color: transparent;
+	border: 0
+}
+
+.form-control-select[disabled], .form-control-select[readonly], fieldset[disabled] .form-control-select
+	{
+	background-color: #eee;
+	opacity: 1
+}
+
+.form-control-select[disabled], fieldset[disabled] .form-control-select
+	{
+	cursor: not-allowed
+}
+
+.form-control-input {
+	display: block;
+	width: 66%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.form-control-input:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6)
+}
+
+.form-control-input::-moz-placeholder {
+	color: #999;
+	opacity: 1
+}
+
+.form-control-input:-ms-input-placeholder {
+	color: #999
+}
+
+.form-control-input::-webkit-input-placeholder {
+	color: #999
+}
+
+.form-control-input::-ms-expand {
+	background-color: transparent;
+	border: 0
+}
+
+.form-control-input[disabled], .form-control-input[readonly], fieldset[disabled] .form-control-input
+	{
+	background-color: #eee;
+	opacity: 1
+}
+
+.form-control-input[disabled], fieldset[disabled] .form-control-input {
+	cursor: not-allowed
+}
+
+.control-label-r {
+	margin-top: 6px;
+}
+
+.btn-primary-b {
+	color: #fff;
+	background-color: #c0c0c0;
+	border-color: #c0c0c0
+}
+
+.btn-primary-b.focus, .btn-primary-b:focus {
+	color: #fff;
+	background-color: #c0c0c0;
+	border-color: #808080
+}
+
+.btn-primary-b:hover {
+	color: #fff;
+	background-color: #c0c0c0;
+	border-color: #808080
+}
+
+/* 加载动画 */
+/**
+ *
+ * All animations must live in their own file
+ * in the animations directory and be included
+ * here.
+ *
+ */
+/**
+ * Styles shared by multiple animations
+ */
+/**
+ */
+@-webkit-keyframes ball-spin-fade-loader { 50% {
+	opacity: 0.3;
+	-webkit-transform: scale(0.4);
+	transform: scale(0.4);}
+	100%{
+		opacity:1;
+		-webkit-transform:scale(1);
+		transform:scale(1);}}
+@keyframes ball-spin-fade-loader { 50% {
+	opacity: 0.3;
+	-webkit-transform: scale(0.4);
+	transform: scale(0.4);}
+	100%{
+		opacity:1;
+		-webkit-transform:scale(1);
+		transform:scale(1);}}
+.ball-spin-fade-loader {
+	position: relative;
+}
+
+.ball-spin-fade-loader>div:nth-child(1) {
+	top: 12.5px;
+	left: 0;
+	-webkit-animation: ball-spin-fade-loader 1s 0s infinite linear;
+	animation: ball-spin-fade-loader 1s 0s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(2) {
+	top: 8.522725px;
+	left: 8.522725px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.12s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.12s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(3) {
+	top: 0;
+	left: 12.5px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.24s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.24s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(4) {
+	top: -8.522725px;
+	left: 8.522725px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.36s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.36s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(5) {
+	top: -12.5px;
+	left: 0;
+	-webkit-animation: ball-spin-fade-loader 1s 0.48s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.48s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(6) {
+	top: -8.522725px;
+	left: -8.522725px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.6s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.6s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(7) {
+	top: 0;
+	left: -12.5px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.72s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.72s infinite linear;
+}
+
+.ball-spin-fade-loader>div:nth-child(8) {
+	top: 8.522725px;
+	left: -8.522725px;
+	-webkit-animation: ball-spin-fade-loader 1s 0.84s infinite linear;
+	animation: ball-spin-fade-loader 1s 0.84s infinite linear;
+}
+
+.ball-spin-fade-loader>div {
+	background-color: #279fcf;
+	width: 7.5px;
+	height: 7.5px;
+	border-radius: 100%;
+	margin: 2px;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	position: absolute;
+}
+
+
+
+
+/* 字体闪烁 */
+/* 定义keyframe动画，命名为blink */
+@keyframes blink{
+  0%{opacity: 1;}
+  50%{opacity: 1;}
+  50.01%{opacity: 0;} /* 注意这里定义50.01%立刻透明度为０，可以设置闪烁效果 */
+  100%{opacity: 0;} 
+}
+
+/* 添加兼容性前缀 */
+
+@-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-ms-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* 定义blink类*/
+.blink{
+    animation: blink 1s linear infinite;  
+    /* 其它浏览器兼容性前缀 */
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    -ms-animation: blink 1s linear infinite;
+    -o-animation: blink 1s linear infinite;
+    color: #000000;
+}

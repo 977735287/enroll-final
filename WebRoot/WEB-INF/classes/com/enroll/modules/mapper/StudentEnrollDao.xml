@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.StudentEnrollDao">
+
+	<insert id="save" parameterType="com.enroll.modules.pojo.StuInfoEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_stu_info
+		(
+		`id`,
+		`stuName`,
+		`stuSex`,
+		`stuBirthday`,
+		`stuCertificatesType`,
+		`stuCertificatesNum`,
+		`stuMajor`,
+		`stuMajorDirection`,
+		`stuLength`,
+		`stuEntranceTime`,
+		`stuNum`,
+		`stuPinyinName`,
+		`stuEnglishName`,
+		`stuClassName`,
+		`stuType`,
+		`stuIsAllDay`,
+		`stuEntranceWay`,
+		`stuStudyWay`,
+		`stuHKMTOC`,
+		`stuNation`,
+		`stuPoliticalOutlook`,
+		`stuHealthCondition`,
+		`stuIsMarried`,
+		`stuArea`,
+		`stuNationArea`,
+		`stuBirthArea`,
+		`stuHouseHoldType`,
+		`stuDomicile`,
+		`stuHouseArea`,
+		`stuDetailAdress`,
+		`stuPhoneNum`,
+		`stuPoliceStation`,
+		`stuTrainSection`,
+		`stuIsCurrent`,
+		`stuEnrolObject`,
+		`stuTeachingPoint`,
+		`stuIsSuiqian`,
+		`stuIsTransProvincial`,
+		`stuEnrolWay`,
+		`stuZKH`,
+		`stuExamineeNumber`,
+		`stuTotalScore`,
+		`stuEnrolType`,
+		`stuSchoolingType`,
+		`stuSchoolCode`,
+		`stuSubsectionCulture`,
+		`stuOtherContact`,
+		`stuHomeTel`,
+		`stuHomeAddrNow`,
+		`stuPostalCode`,
+		`stuNationality`,
+		`stuFamilyMember1`,
+		`stuFamilyMember2`,
+		`stuUploadFile`,
+		`stuClass`,
+		`user`
+		)
+		values
+		(
+		#{id},
+		#{stuName},
+		#{stuSex},
+		#{stuBirthday},
+		#{stuCertificatesType.id},
+		#{stuCertificatesNum},
+		#{stuMajor.majorId},
+		#{stuMajorDirection},
+		#{stuLength.id},
+		#{stuEntranceTime},
+		#{stuNum},
+		#{stuPinyinName},
+		#{stuEnglishName},
+		#{stuClassName},
+		#{stuType.id},
+		#{stuIsAllDay},
+		#{stuEntranceWay.id},
+		#{stuStudyWay},
+		#{stuHKMTOC.id},
+		#{stuNation.id},
+		#{stuPoliticalOutlook.id},
+		#{stuHealthCondition},
+		#{stuIsMarried},
+		#{stuArea.id},
+		#{stuNationArea.id},
+		#{stuBirthArea.id},
+		#{stuHouseHoldType},
+		#{stuDomicile},
+		#{stuHouseArea.id},
+		#{stuDetailAdress},
+		#{stuPhoneNum},
+		#{stuPoliceStation},
+		#{stuTrainSection},
+		#{stuIsCurrent},
+		#{stuEnrolObject.id},
+		#{stuTeachingPoint},
+		#{stuIsSuiqian},
+		#{stuIsTransProvincial},
+		#{stuEnrolWay},
+		#{stuZKH},
+		#{stuExamineeNumber},
+		#{stuTotalScore},
+		#{stuEnrolType.id},
+		#{stuSchoolingType},
+		#{stuSchoolCode},
+		#{stuSubsectionCulture},
+		#{stuOtherContact},
+		#{stuHomeTel},
+		#{stuHomeAddrNow},
+		#{stuPostalCode},
+		#{stuNationality.id},
+		#{stuFamilyMember1.id},
+		#{stuFamilyMember2.id},
+		#{stuUploadFile.id},
+		#{stuClass.id},
+		#{user.userId}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.enroll.modules.pojo.StuInfoEntity">
+		update s_stu_info
+		<set>
+			<if test="stuName != null">`stuName` = #{stuName}, </if>
+			<if test="stuSex != null">`stuSex` = #{stuSex}, </if>
+			<if test="stuBirthday != null">`stuBirthday` = #{stuBirthday}, </if>
+			<if test="stuCertificatesType != null">`stuCertificatesType` = #{stuCertificatesType.id}, </if>
+			<if test="stuCertificatesNum != null">`stuCertificatesNum` = #{stuCertificatesNum}, </if>
+			<if test="stuMajor != null">`stuMajor` = #{stuMajor.majorId}, </if>
+			<if test="stuMajorDirection != null">`stuMajorDirection` = #{stuMajorDirection}, </if>
+			<if test="stuLength != null">`stuLength` = #{stuLength.id}, </if>
+			<if test="stuEntranceTime != null">`stuEntranceTime` = #{stuEntranceTime}, </if>
+			<if test="stuNum != null">`stuNum` = #{stuNum}, </if>
+			<if test="stuPinyinName != null">`stuPinyinName` = #{stuPinyinName}, </if>
+			<if test="stuEnglishName != null">`stuEnglishName` = #{stuEnglishName}, </if>
+			<if test="stuClassName != null">`stuClassName` = #{stuClassName}, </if>
+			<if test="stuType != null">`stuType` = #{stuType.id}, </if>
+			<if test="stuIsAllDay != null">`stuIsAllDay` = #{stuIsAllDay}, </if>
+			<if test="stuEntranceWay != null">`stuEntranceWay` = #{stuEntranceWay.id}, </if>
+			<if test="stuStudyWay != null">`stuStudyWay`= #{stuStudyWay}, </if>
+			<if test="stuHKMTOC != null">`stuHKMTOC` = #{stuHKMTOC.id}, </if>
+			<if test="stuNation != null">`stuNation` = #{stuNation.id}, </if>
+			<if test="stuPoliticalOutlook != null">`stuPoliticalOutlook` = #{stuPoliticalOutlook.id}, </if>
+			<if test="stuHealthCondition != null">`stuHealthCondition` = #{stuHealthCondition}, </if>
+			<if test="stuIsMarried != null">`stuIsMarried` = #{stuIsMarried}, </if>
+			<if test="stuArea != null">`stuArea` = #{stuArea.id}, </if>
+			<if test="stuNationArea != null">`stuNationArea` = #{stuNationArea.id}, </if>
+			<if test="stuBirthArea != null">`stuBirthArea` = #{stuBirthArea.id}, </if>
+			<if test="stuHouseHoldType != null">`stuHouseHoldType` = #{stuHouseHoldType}, </if>
+			<if test="stuDomicile != null">`stuDomicile` = #{stuDomicile}, </if>
+			<if test="stuHouseArea != null">`stuHouseArea` = #{stuHouseArea.id}, </if>
+			<if test="stuDetailAdress != null">`stuDetailAdress` = #{stuDetailAdress}, </if>
+			<if test="stuPhoneNum != null">`stuPhoneNum` = #{stuPhoneNum}, </if>
+			<if test="stuPoliceStation != null">`stuPoliceStation` = #{stuPoliceStation}, </if>
+			<if test="stuTrainSection != null">`stuTrainSection` = #{stuTrainSection}, </if>
+			<if test="stuIsCurrent != null">`stuIsCurrent` = #{stuIsCurrent}, </if>
+			<if test="stuEnrolObject != null">`stuEnrolObject` = #{stuEnrolObject.id}, </if>
+			<if test="stuTeachingPoint != null">`stuTeachingPoint` = #{stuTeachingPoint}, </if>
+			<if test="stuIsSuiqian != null">`stuIsSuiqian` = #{stuIsSuiqian}, </if>
+			<if test="stuIsTransProvincial != null">`stuIsTransProvincial` = #{stuIsTransProvincial}, </if>
+			<if test="stuEnrolWay != null">`stuEnrolWay` = #{stuEnrolWay}, </if>
+			<if test="stuZKH != null">`stuZKH` = #{stuZKH}, </if>
+			<if test="stuExamineeNumber != null">`stuExamineeNumber` = #{stuExamineeNumber}, </if>
+			<if test="stuTotalScore != null">`stuTotalScore` = #{stuTotalScore}, </if>
+			<if test="stuEnrolType != null">`stuEnrolType` = #{stuEnrolType.id}, </if>
+			<if test="stuSchoolingType != null">`stuSchoolingType` = #{stuSchoolingType}, </if>
+			<if test="stuSchoolCode != null">`stuSchoolCode` = #{stuSchoolCode}, </if>
+			<if test="stuSubsectionCulture != null">`stuSubsectionCulture` = #{stuSubsectionCulture}, </if>
+			<if test="stuOtherContact != null">`stuOtherContact` = #{stuOtherContact}, </if>
+			<if test="stuHomeTel != null">`stuHomeTel` = #{stuHomeTel}, </if>
+			<if test="stuHomeAddrNow != null">`stuHomeAddrNow` = #{stuHomeAddrNow}, </if>
+			<if test="stuPostalCode != null">`stuPostalCode` = #{stuPostalCode}, </if>
+			<if test="stuNationality != null">`stuNationality` = #{stuNationality.id}, </if>
+			<if test="stuFamilyMember1 != null">`stuFamilyMember1` = #{stuFamilyMember1.id}, </if>
+			<if test="stuFamilyMember2 != null">`stuFamilyMember2` = #{stuFamilyMember2.id}, </if>
+			<if test="stuUploadFile != null">`stuUploadFile` = #{stuUploadFile.id}, </if>
+			<if test="stuClass != null">`stuClass` = #{stuClass.id}, </if>
+			<if test="user != null">`user` = #{user.userId}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<insert id="saveFamilyMember" parameterType="com.enroll.modules.pojo.StudentFamilyMemberEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into s_family_member
+		(
+		`id`,
+		`name`,
+		`guardian`,
+		`phoneNum`,
+		`birthday`,
+		`certificatesType`,
+		`certificatesNum`,
+		`memberHealthCondition`,
+		`unit`,
+		`job`,
+		`memberNation`,
+		`memberPoliticalOutlook`,
+		`relationShip`
+		)
+		values
+		(
+		#{id},
+		#{name},
+		#{guardian},
+		#{phoneNum},
+		#{birthday},
+		#{certificatesType},
+		#{certificatesNum},
+		#{memberHealthCondition},
+		#{unit},
+		#{job},
+		#{memberNation.id},
+		#{memberPoliticalOutlook.id},
+		#{relationShip.id}
+		)
+	</insert>
+
+	<update id="updateFamilyMember" parameterType="com.enroll.modules.pojo.StudentFamilyMemberEntity">
+		update s_family_member
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="guardian != null">`guardian` = #{guardian}, </if>
+			<if test="phoneNum != null">`phoneNum` = #{phoneNum}, </if>
+			<if test="birthday != null">`birthday` = #{birthday}, </if>
+			<if test="certificatesType != null">`certificatesType` = #{certificatesType}, </if>
+			<if test="certificatesNum != null">`certificatesNum` = #{certificatesNum}, </if>
+			<if test="memberHealthCondition != null">`memberHealthCondition` = #{memberHealthCondition}, </if>
+			<if test="unit != null">`unit` = #{unit}, </if>
+			<if test="job != null">`job`= #{job}, </if>
+			<if test="memberNation != null">`memberNation` = #{memberNation.id}, </if>
+			<if test="memberPoliticalOutlook != null">`memberPoliticalOutlook` = #{memberPoliticalOutlook.id},
+			</if>
+			<if test="relationShip != null">`relationShip` = #{relationShip.id}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteBatch">
+		delete from s_stu_info where id in
+		<foreach item="id" collection="array" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.StuInfoEntity" id="sList"><!-- 
+			跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="stuUploadFile" column="stuUploadFile"
+			select="com.enroll.modules.mapper.StudentDao.selectUploadFile" /> <!-- 用接口里定义的方法，根据UploadFileEntity表中的stuUploadFile字段查出对应数据 -->
+		<association property="stuClass" column="stuClass"
+			select="com.enroll.modules.mapper.ClassDao.select" />
+		<association property="user" column="user"
+			select="com.enroll.modules.mapper.SysUserDao.select" />
+		<association property="stuType" column="stuType"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentType" />
+		<association property="stuCertificatesType" column="stuCertificatesType"
+			select="com.enroll.modules.mapper.StudentDao.selectCertificatesType" />
+		<association property="stuEntranceWay" column="stuEntranceWay"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEntranceWay" />
+		<association property="stuNationality" column="stuNationality"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentNationality" />
+		<association property="stuHKMTOC" column="stuHKMTOC"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentHKMTOC" />
+		<association property="stuBirthArea" column="stuBirthArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuArea" column="stuArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuNationArea" column="stuNationArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuHouseArea" column="stuHouseArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuMajor" column="stuMajor"
+			select="com.enroll.modules.mapper.MajorDao.select" />
+		<association property="stuLength" column="stuLength"
+			select="com.enroll.modules.mapper.LengthsOfSchoolDao.select" />
+		<association property="stuNation" column="stuNation"
+			select="com.enroll.modules.mapper.StudentDao.selectNation" />
+		<association property="stuPoliticalOutlook" column="stuPoliticalOutlook"
+			select="com.enroll.modules.mapper.StudentDao.selectPoliticalOutlook" />
+		<association property="stuEnrolObject" column="stuEnrolObject"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEnrolObject" />
+		<association property="stuEnrolType" column="stuEnrolType"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEnrolType" />
+		<association property="stuFamilyMember1" column="stuFamilyMember1"
+			select="com.enroll.modules.mapper.StudentDao.selectFamilyMember" />
+		<association property="stuFamilyMember2" column="stuFamilyMember2"
+			select="com.enroll.modules.mapper.StudentDao.selectFamilyMember" />
+	</resultMap>
+
+	<select id="queryListById" resultMap="sList">
+		select * from s_stu_info
+		where user=#{value}
+	</select>
+
+	<select id="queryObject" resultMap="sList">
+		select * from s_stu_info
+		where id=#{id}
+	</select>
+
+</mapper>

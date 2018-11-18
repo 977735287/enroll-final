@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.enroll.modules.mapper.StudentInfoDao">
+
+	<!-- 多对一查询 -->
+	<resultMap type="com.enroll.modules.pojo.StuInfoEntity" id="sList"><!-- 
+			跟一对一一样用association标签,实体类定义的成员,要跟数据库字段名对应上 -->
+		<association property="stuUploadFile" column="stuUploadFile"
+			select="com.enroll.modules.mapper.StudentDao.selectUploadFile" /> <!-- 用接口里定义的方法，根据UploadFileEntity表中的stuUploadFile字段查出对应数据 -->
+		<association property="stuClass" column="stuClass"
+			select="com.enroll.modules.mapper.ClassDao.select" />
+		<association property="user" column="user"
+			select="com.enroll.modules.mapper.SysUserDao.select" />
+		<association property="stuType" column="stuType"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentType" />
+		<association property="stuCertificatesType" column="stuCertificatesType"
+			select="com.enroll.modules.mapper.StudentDao.selectCertificatesType" />
+		<association property="stuEntranceWay" column="stuEntranceWay"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEntranceWay" />
+		<association property="stuNationality" column="stuNationality"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentNationality" />
+		<association property="stuHKMTOC" column="stuHKMTOC"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentHKMTOC" />
+		<association property="stuBirthArea" column="stuBirthArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuArea" column="stuArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuNationArea" column="stuNationArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuHouseArea" column="stuHouseArea"
+			select="com.enroll.modules.mapper.StudentDao.selectArea" />
+		<association property="stuMajor" column="stuMajor"
+			select="com.enroll.modules.mapper.MajorDao.select" />
+		<association property="stuLength" column="stuLength"
+			select="com.enroll.modules.mapper.LengthsOfSchoolDao.select" />
+		<association property="stuNation" column="stuNation"
+			select="com.enroll.modules.mapper.StudentDao.selectNation" />
+		<association property="stuPoliticalOutlook" column="stuPoliticalOutlook"
+			select="com.enroll.modules.mapper.StudentDao.selectPoliticalOutlook" />
+		<association property="stuEnrolObject" column="stuEnrolObject"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEnrolObject" />
+		<association property="stuEnrolType" column="stuEnrolType"
+			select="com.enroll.modules.mapper.StudentDao.selectStudentEnrolType" />
+		<association property="stuFamilyMember1" column="stuFamilyMember1"
+			select="com.enroll.modules.mapper.StudentDao.selectFamilyMember" />
+		<association property="stuFamilyMember2" column="stuFamilyMember2"
+			select="com.enroll.modules.mapper.StudentDao.selectFamilyMember" />
+	</resultMap>
+
+	<select id="queryListById" resultMap="sList">
+		select * from s_stu_info
+		where id = #{id}
+	</select>
+	
+	<select id="queryAreaList" resultType="com.enroll.modules.pojo.AreaEntity">
+		select * from s_area
+	</select>
+	
+	<select id="queryNationList" resultType="com.enroll.modules.pojo.Nation">
+		select * from s_nation
+	</select>
+
+	<select id="queryList" resultMap="sList">
+		select s.* from s_stu_info s left JOIN sys_user u ON u.userId=s.user
+		<where>
+			u.enrollStatus=1
+			<if test="stuName != null and stuName.trim() != ''">
+				and `stuName` like concat('%',#{stuName},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select count(*) from s_stu_info s left JOIN sys_user u ON
+		u.userId=s.user
+		<where>
+			u.enrollStatus=1
+			<if test="stuName != null and stuName.trim() != ''">
+				and `stuName` like concat('%',#{stuName},'%')
+			</if>
+		</where>
+	</select>
+</mapper>
